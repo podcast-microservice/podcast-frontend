@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { authActions, authSelectors } from '~/features/auth';
-import { Button } from '~/shared/components/ui/button';
+import Button from '@mui/material/Button';
 
 const Login = () => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { authActions, authSelectors } from '~/features/auth';
-import { Button } from '~/shared/components/ui/button';
+import Button from '@mui/material/Button';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -19,10 +19,18 @@ const HomePage = () => {
           navigate('/login');
         }}
       >
-        GoToLogin
+        Go To Login
+      </Button>
+      <Button
+        onClick={() => {
+          navigate('/components');
+        }}
+        className='ml-2'
+      >
+        Go To Components
       </Button>
       {isUserAuthenticated && (
-        <Button variant='secondary' className='ml-2' onClick={logout}>
+        <Button className='ml-2' onClick={logout}>
           Logout
         </Button>
       )}

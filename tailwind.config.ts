@@ -1,7 +1,10 @@
-/** @type {import('tailwindcss').Config} */
-// eslint-disable-next-line no-undef
-module.exports = {
+import type { Config } from 'tailwindcss';
+import animatePlugin from 'tailwindcss-animate';
+
+const config = {
   darkMode: ['class'],
+  important: '#root',
+  prefix: 'tw-',
   content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
   theme: {
     container: {
@@ -52,14 +55,17 @@ module.exports = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
       },
+      dropShadow: {
+        primary: '0 2px 6px rgba(255, 165, 0, 0.7)'
+      },
       keyframes: {
         'accordion-down': {
-          from: { height: 0 },
+          from: { height: '0' },
           to: { height: 'var(--radix-accordion-content-height)' }
         },
         'accordion-up': {
           from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: 0 }
+          to: { height: '0' }
         }
       },
       animation: {
@@ -68,6 +74,7 @@ module.exports = {
       }
     }
   },
-  // eslint-disable-next-line no-undef
-  plugins: [require('tailwindcss-animate')]
-};
+  plugins: [animatePlugin]
+} satisfies Config;
+
+export default config;
