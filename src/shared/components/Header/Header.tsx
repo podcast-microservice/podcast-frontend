@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { routes } from '~/routes';
 import Logo from '~/shared/components/Logo';
 import IconRound from '~/shared/components/ui/IconRound';
-import NavigationMenu from '~/shared/components/ui/Menu/NavigationMenu';
+import NavigationMenu from '~/shared/components/ui/NavigationMenu';
 import { mainNavigationLinks } from '~/shared/utils/constants/navigation-link';
 
 const Header = () => {
