@@ -1,6 +1,13 @@
 import { styled } from '@mui/material/styles';
-import Button from '@mui/material/Button';
+import Button, { ButtonProps } from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+
+interface IProps extends ButtonProps {
+  /**
+   * Specify name to be showed in ButtonFileUpload
+   */
+  nameContent: string;
+}
 
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
@@ -14,11 +21,15 @@ const VisuallyHiddenInput = styled('input')({
   width: 1
 });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const ButtonFileUpload = ({ name, ...props }: any) => {
+const ButtonFileUpload = ({ nameContent, ...props }: IProps) => {
   return (
-    <Button variant='contained' component='label' startIcon={<CloudUploadIcon />} {...props}>
-      {name}
+    <Button
+      variant='contained'
+      component='label'
+      startIcon={<CloudUploadIcon className='tw-text-[20px] tw-text-black' />}
+      {...props}
+    >
+      {nameContent}
       <VisuallyHiddenInput type='file' />
     </Button>
   );
