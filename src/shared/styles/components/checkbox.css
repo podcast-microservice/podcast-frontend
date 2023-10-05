@@ -1,0 +1,8 @@
+@layer components {
+  #root .tw-checkbox {
+    @apply tw-text-border;
+  }
+  #root .tw-checkbox.Mui-checked {
+    @apply tw-text-primary;
+  }
+}

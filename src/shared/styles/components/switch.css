@@ -1,0 +1,11 @@
+@layer components {
+  #root .tw-switch .MuiSwitch-track {
+    @apply tw-bg-border;
+  }
+  #root .tw-switch .Mui-checked .MuiSwitch-thumb {
+    @apply tw-bg-primary;
+  }
+  #root .tw-switch .Mui-checked + .MuiSwitch-track {
+    @apply tw-bg-primary;
+  }
+}
