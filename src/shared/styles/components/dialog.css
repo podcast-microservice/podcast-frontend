@@ -1,0 +1,8 @@
+@layer components {
+  #tw-root .tw-dialog .MuiDialog-paper {
+    @apply tw-bg-background tw-text-foreground tw-drop-shadow-dialog;
+  }
+  #tw-root .tw-dialog .MuiBackdrop-root {
+    @apply tw-bg-background/80 tw-backdrop-blur-[2px];
+  }
+}
