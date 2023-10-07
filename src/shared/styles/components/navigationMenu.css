@@ -1,11 +1,11 @@
 @layer components {
-  #root .tw-navigation-menu {
+  #tw-root .tw-navigation-menu {
     @apply tw-flex tw-flex-row tw-items-center;
   }
-  #root .tw-navigation-menu-item {
+  #tw-root .tw-navigation-menu-item {
     @apply tw-text-foreground tw-uppercase tw-font-bold tw-text-sm tw-px-6;
   }
-  #root .tw-navigation-menu-item.tw-selected {
+  #tw-root .tw-navigation-menu-item.tw-selected {
     @apply tw-text-primary tw-text-base;
   }
 }

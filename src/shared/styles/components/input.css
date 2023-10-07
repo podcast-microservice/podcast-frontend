@@ -1,23 +1,26 @@
 @layer components {
-  #root .tw-input .MuiInputBase-root {
+  #tw-root .tw-input {
+    @apply tw-w-full;
+  }
+  #tw-root .tw-input .MuiInputBase-root {
     @apply tw-py-1 tw-rounded-md before:tw-border-input;
   }
-  #root .tw-input .MuiInputLabel-root {
+  #tw-root .tw-input .MuiInputLabel-root {
     @apply tw-py-1 tw-text-border;
   }
-  #root .tw-input .MuiInputBase-input {
+  #tw-root .tw-input .MuiInputBase-input {
     @apply tw-text-foreground;
   }
-  #root .tw-input .MuiInputLabel-root.Mui-focused {
+  #tw-root .tw-input .MuiInputLabel-root.Mui-focused {
     @apply tw-text-primary/70;
   }
-  #root .tw-input .Mui-focused .MuiSvgIcon-root {
+  #tw-root .tw-input .Mui-focused .MuiSvgIcon-root {
     @apply tw-text-primary/70;
   }
-  #root .tw-input .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  #tw-root .tw-input .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     @apply tw-border-primary/60;
   }
-  #root .tw-input .MuiOutlinedInput-notchedOutline {
+  #tw-root .tw-input .MuiOutlinedInput-notchedOutline {
     @apply tw-border tw-border-solid tw-border-input;
   }
 }

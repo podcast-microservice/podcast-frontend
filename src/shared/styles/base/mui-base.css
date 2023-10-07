@@ -1,31 +1,31 @@
-#root .MuiFormControlLabel-asterisk {
+#tw-root .MuiFormControlLabel-asterisk {
   @apply tw-text-primary;
 }
-#root .MuiRating-iconEmpty {
+#tw-root .MuiRating-iconEmpty {
   @apply tw-text-border;
 }
-#root .MuiTableSortLabel-root.Mui-active .MuiTableSortLabel-icon {
+#tw-root .MuiTableSortLabel-root.Mui-active .MuiTableSortLabel-icon {
   @apply tw-text-primary;
 }
-#root .MuiTableRow-root:hover {
+#tw-root .MuiTableRow-root:hover {
   @apply tw-bg-border/20
 }
-#root .MuiTableRow-root.Mui-selected {
+#tw-root .MuiTableRow-root.Mui-selected {
   @apply tw-bg-border/20
 }
-#root .MuiTableRow-root.Mui-selected:hover {
+#tw-root .MuiTableRow-root.Mui-selected:hover {
   @apply tw-bg-border/30
 }
-#root .MuiTablePagination-input .MuiTablePagination-selectIcon {
+#tw-root .MuiTablePagination-input .MuiTablePagination-selectIcon {
   @apply tw-text-border
 }
-#root .MuiTablePagination-actions .MuiSvgIcon-root {
+#tw-root .MuiTablePagination-actions .MuiSvgIcon-root {
   @apply tw-text-primary
 }
-#root .MuiTablePagination-actions .Mui-disabled .MuiSvgIcon-root {
+#tw-root .MuiTablePagination-actions .Mui-disabled .MuiSvgIcon-root {
   @apply tw-text-border
 }
-#root .MuiTableCell-stickyHeader {
+#tw-root .MuiTableCell-stickyHeader {
   @apply tw-bg-background
 }
 /* .MuiTooltip-popper .MuiTooltip-tooltip {

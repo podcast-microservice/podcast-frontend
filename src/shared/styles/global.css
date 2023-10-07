@@ -7,6 +7,8 @@
 @import './components/checkbox.css';
 @import './components//switch.css';
 @import './components/badge.css';
+@import './components//drawer.css';
+@import './components//dialog.css';
 
 @tailwind base;
 @tailwind components;

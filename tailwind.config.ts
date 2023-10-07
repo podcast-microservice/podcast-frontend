@@ -3,7 +3,7 @@ import animatePlugin from 'tailwindcss-animate';
 
 const config = {
   darkMode: ['class'],
-  important: '#root',
+  important: '#tw-root',
   prefix: 'tw-',
   content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
   theme: {
@@ -57,7 +57,8 @@ const config = {
         sm: 'calc(var(--radius) - 4px)'
       },
       dropShadow: {
-        primary: '0 2px 6px rgba(255, 165, 0, 0.7)'
+        primary: '0 2px 6px hsl(var(--primary) / 0.7)',
+        dialog: '0 6px 8px hsl(var(--foreground) / 0.2)'
       },
       keyframes: {
         'accordion-down': {

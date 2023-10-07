@@ -1,5 +1,5 @@
 @layer components {
-  #root .tw-badge .MuiBadge-badge {
+  #tw-root .tw-badge .MuiBadge-badge {
     @apply tw-bg-primary tw-text-foreground;
   }
 }
