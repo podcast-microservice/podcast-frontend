@@ -32,7 +32,7 @@ interface IProps<T> {
    */
   selected?: boolean;
   /**
-   * Specify function select all item from table in EnhancedTableHead
+   * Specify function select all items from table in EnhancedTableHead
    */
   onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /**

@@ -1,6 +1,6 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
+import Drawer from '@mui/material/Drawer';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -8,6 +8,15 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import * as React from 'react';
 import EnhancedTableHead from '~/shared/components/ui/Table/EnhancedTableHead';
 import EnhancedTableToolbar from '~/shared/components/ui/Table/EnhancedTableToolbar';
 import { getComparator, stableSort } from '~/shared/utils/helpers/tableSort';
@@ -18,6 +27,8 @@ export default function ComplexComponent() {
   const [order, setOrder] = React.useState<Order>(Order.asc);
   const [orderBy, setOrderBy] = React.useState<keyof Data>('name');
   const [selected, setSelected] = React.useState<readonly string[]>([]);
+  const [isCreating, setIsCreating] = React.useState(false);
+  const [isDeleting, setIsDeleting] = React.useState(false);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -36,7 +47,7 @@ export default function ComplexComponent() {
     setSelected([]);
   };
 
-  const handleClick = (event: React.MouseEvent<unknown>, name: string) => {
+  const handleClick = (name: string) => {
     const selectedIndex = selected.indexOf(name);
     let newSelected: readonly string[] = [];
 
@@ -62,6 +73,24 @@ export default function ComplexComponent() {
     setPage(0);
   };
 
+  const handleCreateItem = () => {
+    setIsCreating(true);
+  };
+
+  const handleEditData = () => {
+    console.log(selected[0]);
+  };
+
+  const handleOpenDeleteDialog = () => {
+    setIsDeleting(true);
+  };
+
+  const handleDeleteData = () => {
+    console.log(selected);
+    setSelected([]);
+    setIsDeleting(false);
+  };
+
   const isSelected = (name: string) => selected.indexOf(name) !== -1;
 
   // Avoid a layout jump when reaching the last page with empty rows.
@@ -76,7 +105,13 @@ export default function ComplexComponent() {
   return (
     <Box className='tw-py-6'>
       <Paper className='tw-bg-background tw-shadow tw-shadow-border tw-border-border/50 tw-border-solid tw-border tw-scrollbar'>
-        <EnhancedTableToolbar tableName='Users' numSelected={selected.length} />
+        <EnhancedTableToolbar
+          tableName='Users'
+          numSelected={selected.length}
+          onCreateItem={handleCreateItem}
+          onEditItem={handleEditData}
+          onDeleteItems={handleOpenDeleteDialog}
+        />
         <TableContainer className='tw-max-h-[500px]'>
           <Table stickyHeader aria-labelledby='Users' size='medium' className='tw-min-w-[500px] tw-bg-background'>
             <EnhancedTableHead
@@ -96,13 +131,13 @@ export default function ComplexComponent() {
                 return (
                   <TableRow
                     hover
-                    onClick={(event) => handleClick(event, row.name)}
+                    onClick={() => handleClick(row.name)}
                     role='checkbox'
                     aria-checked={isItemSelected}
                     tabIndex={-1}
                     key={row.name}
                     selected={isItemSelected}
-                    className='tw-cursor-pointer'
+                    className='tw-cursor-pointer tw-h-14'
                   >
                     <TableCell padding='checkbox'>
                       <Checkbox className='tw-checkbox' checked={isItemSelected} />
@@ -128,7 +163,7 @@ export default function ComplexComponent() {
               {emptyRows > 0 && (
                 <TableRow
                   style={{
-                    height: 53 * emptyRows
+                    height: 56 * emptyRows
                   }}
                 >
                   <TableCell colSpan={6} />
@@ -148,6 +183,53 @@ export default function ComplexComponent() {
           className='tw-text-foreground'
         />
       </Paper>
+      <Drawer
+        variant='temporary'
+        anchor='right'
+        open={isCreating}
+        onClose={() => {
+          setIsCreating(false);
+        }}
+        transitionDuration={{ enter: 500, exit: 300 }}
+        className='tw-drawer'
+      >
+        <Typography className='tw-text-xl tw-text-primary'>Add new item</Typography>
+        <Typography className='tw-text-sm tw-text-foreground/50 tw-mt-1'>
+          Enter all fields to add new item. Click add when you're done
+        </Typography>
+        <form className='tw-grid tw-gap-4 tw-py-4'>
+          <TextField label='Name' variant='outlined' className='tw-input' size='small' required />
+          <div className='tw-grid tw-grid-cols-2 tw-gap-2'>
+            <TextField label='Calories' variant='outlined' className='tw-input' size='small' type='number' required />
+            <TextField label='Fat' variant='outlined' className='tw-input' size='small' type='number' required />
+          </div>
+          <div className='tw-grid tw-grid-cols-2 tw-gap-2'>
+            <TextField label='Carbs' variant='outlined' className='tw-input' size='small' type='number' required />
+            <TextField label='Protein' variant='outlined' className='tw-input' size='small' type='number' required />
+          </div>
+          <div className='tw-text-right'>
+            <Button variant='contained' size='medium' className='tw-btn tw-btn-primary tw-text-black tw-w-20'>
+              Add
+            </Button>
+          </div>
+        </form>
+      </Drawer>
+      <Dialog open={isDeleting} onClose={() => setIsDeleting(false)} className='tw-dialog'>
+        <DialogTitle>Confirm Delete Data</DialogTitle>
+        <DialogContent>
+          <DialogContentText className='tw-text-foreground tw-text-sm'>
+            You can not undo this action. Do you want to proceed?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setIsDeleting(false)} className='tw-text-foreground/70 hover:tw-bg-foreground/10'>
+            Cancel
+          </Button>
+          <Button onClick={handleDeleteData} autoFocus className='tw-text-red-400 hover:tw-bg-red-400/20'>
+            Delete these items
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }
