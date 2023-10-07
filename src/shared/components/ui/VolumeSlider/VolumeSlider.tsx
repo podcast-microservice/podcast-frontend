@@ -2,7 +2,6 @@ import Slider from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 
 const PrettoSlider = styled(Slider)({
-  color: '#FFA500',
   height: 6,
   '& .MuiSlider-track': {
     border: 'none'

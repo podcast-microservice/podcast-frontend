@@ -1,0 +1,5 @@
+@layer components {
+  #tw-root .tw-rating .MuiRating-iconEmpty {
+    @apply tw-text-border;
+  }
+}

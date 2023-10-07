@@ -24,8 +24,9 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 40%;
+    --border: 0 0% 50%;
     --input: 0 5% 80%;
+    --footer: 0 0% 20%;
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
@@ -57,8 +58,9 @@ html.dark {
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 210 40% 98%;
 
-  --border: 0 0% 80%;
+  --border: 0 0% 70%;
   --input: 0 5% 50%;
+  --footer: 0 0% 5%;
   --ring: 212.7 26.8% 83.9%;
 }
 

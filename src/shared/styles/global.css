@@ -1,6 +1,14 @@
 @import './base/base.css';
+@import './base/mui-base.css';
+@import './base/scroll-bar.css';
 @import './components/button.css';
 @import './components/input.css';
+@import './components/navigationMenu.css';
+@import './components/checkbox.css';
+@import './components//switch.css';
+@import './components/badge.css';
+@import './components//drawer.css';
+@import './components//dialog.css';
 
 @tailwind base;
 @tailwind components;

@@ -1,0 +1,36 @@
+#tw-root .MuiFormControlLabel-asterisk {
+  @apply tw-text-primary;
+}
+#tw-root .MuiRating-iconEmpty {
+  @apply tw-text-border;
+}
+#tw-root .MuiTableSortLabel-root.Mui-active .MuiTableSortLabel-icon {
+  @apply tw-text-primary;
+}
+#tw-root .MuiTableRow-root:hover {
+  @apply tw-bg-border/20
+}
+#tw-root .MuiTableRow-root.Mui-selected {
+  @apply tw-bg-border/20
+}
+#tw-root .MuiTableRow-root.Mui-selected:hover {
+  @apply tw-bg-border/30
+}
+#tw-root .MuiTablePagination-input .MuiTablePagination-selectIcon {
+  @apply tw-text-border
+}
+#tw-root .MuiTablePagination-actions .MuiSvgIcon-root {
+  @apply tw-text-primary
+}
+#tw-root .MuiTablePagination-actions .Mui-disabled .MuiSvgIcon-root {
+  @apply tw-text-border
+}
+#tw-root .MuiTableCell-stickyHeader {
+  @apply tw-bg-background
+}
+/* .MuiTooltip-popper .MuiTooltip-tooltip {
+  @apply tw-bg-primary tw-text-black
+}
+.MuiTooltip-popper .MuiTooltip-tooltip .MuiTooltip-arrow {
+  @apply tw-text-primary
+} */
