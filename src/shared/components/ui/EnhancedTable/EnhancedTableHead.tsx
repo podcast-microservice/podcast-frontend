@@ -28,10 +28,6 @@ interface IProps<T> {
    */
   rowCount?: number;
   /**
-   * Specify weather table has select option or not in EnhancedTableHead
-   */
-  selected?: boolean;
-  /**
    * Specify function select all items from table in EnhancedTableHead
    */
   onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -47,7 +43,6 @@ const EnhancedTableHead = <T extends object>({
   orderBy,
   numSelected = 0,
   rowCount = 0,
-  selected = false,
   onSelectAllClick,
   onRequestSort
 }: IProps<T>) => {
@@ -58,16 +53,14 @@ const EnhancedTableHead = <T extends object>({
   return (
     <TableHead>
       <TableRow>
-        {selected && (
-          <TableCell padding='checkbox'>
-            <Checkbox
-              className='tw-checkbox'
-              indeterminate={numSelected > 0 && numSelected < rowCount}
-              checked={rowCount > 0 && numSelected === rowCount}
-              onChange={onSelectAllClick}
-            />
-          </TableCell>
-        )}
+        <TableCell padding='checkbox'>
+          <Checkbox
+            className='tw-checkbox'
+            indeterminate={numSelected > 0 && numSelected < rowCount}
+            checked={rowCount > 0 && numSelected === rowCount}
+            onChange={onSelectAllClick}
+          />
+        </TableCell>
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id.toString()}

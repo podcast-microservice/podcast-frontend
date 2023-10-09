@@ -3,8 +3,8 @@ import Typography from '@mui/material/Typography';
 import IconRound from '../ui/IconRound';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import SpotifyIcon from '../icon/SpotifyIcon';
-import SoundCloudIcon from '../icon/SoundCloudIcon';
+import SpotifyIcon from '../Icon/SpotifyIcon';
+import SoundCloudIcon from '../Icon/SoundCloudIcon';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
