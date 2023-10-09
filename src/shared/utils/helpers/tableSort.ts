@@ -21,7 +21,6 @@ export function getComparator<T, K extends keyof T>(order: Order, orderBy: K): (
 // only support modern browsers you can replace stableSort(exampleArray, exampleComparator)
 // with exampleArray.slice().sort(exampleComparator)
 export function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => number) {
-  if (!array) return [];
   const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
   stabilizedThis.sort((a, b) => {
     const order = comparator(a[0], b[0]);
