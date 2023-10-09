@@ -1,4 +1,4 @@
-import { RootState } from '~/configs/configureStore';
+import { RootState } from '~/configs/reduxStore/configureStore';
 
 const isUserAuthenticated = (state: RootState): boolean => state?.auth?.isUserAuthenticated;
 

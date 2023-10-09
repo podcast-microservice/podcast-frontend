@@ -3,7 +3,7 @@
     @apply tw-w-full;
   }
   #tw-root .tw-input .MuiInputBase-root {
-    @apply tw-py-1 tw-rounded-md before:tw-border-input;
+    @apply tw-py-1 tw-rounded-md;
   }
   #tw-root .tw-input .MuiInputLabel-root {
     @apply tw-py-1 tw-text-border;
@@ -22,5 +22,15 @@
   }
   #tw-root .tw-input .MuiOutlinedInput-notchedOutline {
     @apply tw-border tw-border-solid tw-border-input;
+  }
+
+  #tw-root .tw-input-invalid .MuiInputLabel-root {
+    @apply tw-text-red-500;
+  }
+  #tw-root .tw-input-invalid .MuiOutlinedInput-notchedOutline {
+    @apply tw-border-red-500;
+  }
+  #tw-root .tw-input-invalid .MuiSvgIcon-root {
+    @apply tw-text-red-500;
   }
 }
