@@ -51,6 +51,9 @@ const config = {
           foreground: 'hsl(var(--card-foreground))'
         }
       },
+      backgroundImage: {
+        gradient: 'var(--gradient)'
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
