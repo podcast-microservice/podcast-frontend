@@ -7,10 +7,10 @@ import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 const LoginForm = () => {
   return (
-    <div className='tw-overflow-hidden tw-grid tw-grid-cols-1 md:tw-grid-cols-2 md:tw-mx-10 tw-max-w-7xl tw-rounded-3xl'>
-      <div className='tw-hidden md:tw-block tw-bg-secondary'>
+    <div className='tw-overflow-hidden tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 lg:tw-mx-10 tw-max-w-7xl tw-rounded-3xl'>
+      <div className='tw-hidden lg:tw-block tw-bg-illustration'>
         <img
-          src='https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg'
+          src='https://dcpxd9saykbwi.cloudfront.net/login-illustration.png'
           className='tw-w-full'
           alt='Login Image'
         />
