@@ -8,7 +8,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 const LoginForm = () => {
   return (
     <div className='tw-overflow-hidden tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 lg:tw-mx-10 tw-max-w-7xl tw-rounded-3xl'>
-      <div className='tw-hidden lg:tw-block tw-bg-illustration'>
+      <div className='tw-hidden lg:tw-flex tw-bg-illustration  tw-items-center'>
         <img
           src='https://dcpxd9saykbwi.cloudfront.net/login-illustration.png'
           className='tw-w-full'
