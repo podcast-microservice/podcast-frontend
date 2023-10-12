@@ -7,22 +7,22 @@ import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 const LoginForm = () => {
   return (
-    <div className='tw-grid tw-grid-cols-1 md:tw-grid-cols-2 md:tw-mx-10 md:tw-gap-x-1 tw-max-w-7xl'>
-      <div className='tw-hidden md:tw-block'>
+    <div className='tw-overflow-hidden tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 lg:tw-mx-10 tw-max-w-7xl tw-rounded-3xl'>
+      <div className='tw-hidden lg:tw-flex tw-bg-illustration  tw-items-center'>
         <img
-          src='https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg'
+          src='https://dcpxd9saykbwi.cloudfront.net/login-illustration.png'
           className='tw-w-full'
           alt='Login Image'
         />
       </div>
-      <div className=' tw-bg-green-800 tw-w-full tw-flex tw-justify-center tw-flex-col tw-p-10 tw-text-center'>
+      <div className=' tw-bg-background tw-w-full tw-flex tw-justify-center tw-flex-col tw-p-20 tw-text-center'>
         <Typography className='tw-text-2xl tw-mb-4'>Login</Typography>
         <Button variant='contained' size='large' className='tw-btn tw-btn-outline-default tw-mx-auto'>
           <img src={googleIcon} alt='' className='tw-h-3.5 tw-w-3.5' />
           <Typography className='tw-mx-2'>Login with google</Typography>
         </Button>
         <Typography className='tw-text-sm tw-my-5'>or</Typography>
-        <label htmlFor='' className='tw-text-left tw-mb-2'>
+        <label htmlFor='email' className='tw-text-left tw-mb-2'>
           <Typography className='text'>Email Address</Typography>
         </label>
         <TextField
@@ -30,6 +30,7 @@ const LoginForm = () => {
           variant='outlined'
           className='tw-input tw-mb-5'
           size='small'
+          id='email'
           InputProps={{
             startAdornment: (
               <InputAdornment position='start'>
@@ -38,7 +39,7 @@ const LoginForm = () => {
             )
           }}
         />
-        <label htmlFor='' className='tw-text-left tw-mb-2'>
+        <label htmlFor='password' className='tw-text-left tw-mb-2'>
           <Typography className='text'>Password</Typography>
         </label>
         <TextField
@@ -46,6 +47,7 @@ const LoginForm = () => {
           variant='outlined'
           className='tw-input tw-mb-5'
           size='small'
+          id='password'
           InputProps={{
             startAdornment: (
               <InputAdornment position='start'>
@@ -54,12 +56,14 @@ const LoginForm = () => {
             )
           }}
         />
-        <div className='tw-flex'>
+        <div className='tw-flex tw-mb-4'>
           <Typography className='text tw-mr-1'>Does not have any account?</Typography>
-          <a href=''>Register</a>
+          <a href='#' className='tw-mb-2 tw-text-primary'>
+            Register
+          </a>
         </div>
-        <Button variant='contained' size='large' className='tw-btn tw-btn-primary tw-text-black'>
-          Primary
+        <Button variant='contained' size='large' className='tw-btn tw-btn-primary tw-text-black tw-mx-auto tw-w-3/12'>
+          Login
         </Button>
       </div>
     </div>
