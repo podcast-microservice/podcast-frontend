@@ -1,12 +1,17 @@
 import Typography from '@mui/material/Typography';
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const ProblemsSection = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <section className='tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center tw-p-3 tw-py-20'>
-      <Typography className='tw-text-3xl  md:tw-text-4xl tw-text-primary tw-font-medium tw-mb-3'>
+      <Typography className='tw-text-3xl  md:tw-text-4xl tw-text-primary tw-font-medium tw-mb-3' data-aos='fade-down'>
         Helping You Solve Issues
       </Typography>
-      <hr className=' tw-border-b-2 tw-border-primary tw-w-28 tw-mb-10' />
+      <hr className=' tw-border-b-2 tw-border-primary tw-w-28 tw-mb-10' data-aos='fade-down' />
       <div className='tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-4'>
         {mockData.map((item) => (
           <ProblemItem {...item} />
@@ -18,6 +23,7 @@ const ProblemsSection = () => {
 const ProblemItem: React.FC<ProblemItemProps> = ({ icon, heading, content }) => {
   return (
     <article
+      data-aos='fade-up'
       className='tw-flex tw-items-center justify-items-center tw-flex-col 
             tw-border tw-border-primary tw-rounded-lg 
             tw-p-10 tw-max-w-xs'

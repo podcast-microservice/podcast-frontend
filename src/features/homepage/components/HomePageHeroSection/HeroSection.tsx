@@ -3,11 +3,13 @@ import Button from '@mui/material/Button';
 const HeroSection = () => {
   return (
     <section
-      className="tw-h-[calc(100vh-5rem)] tw-flex tw-flex-col tw-justify-center tw-items-center tw-bg-[url('https://d258zg1zfzxoto.cloudfront.net/static-images/hero-image.jpg')] 
+      className="tw-h-[calc(100vh-5rem)] tw-flex tw-flex-col tw-justify-center tw-items-center 
+        tw-bg-[linear-gradient(to_right_bottom,rgba(60,60,60,0.5),rgba(60,60,60,0.5)),url('https://d258zg1zfzxoto.cloudfront.net/static-images/hero-image.jpg')]
         tw-bg-no-repeat 
         tw-bg-cover 
         tw-bg-center
-        tw-text-center"
+        tw-text-center
+        tw-bg-fixed"
     >
       <Typography className='tw-text-4xl  md:tw-text-5xl tw-text-primary tw-font-medium tw-mb-6'>
         Transform Your Mindset And Achieve Your Goal
