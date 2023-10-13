@@ -11,6 +11,9 @@
   #tw-root .tw-input .MuiInputBase-input {
     @apply tw-text-foreground;
   }
+  #tw-root .tw-input .MuiSvgIcon-root {
+    @apply tw-text-border;
+  }
   #tw-root .tw-input .MuiInputLabel-root.Mui-focused {
     @apply tw-text-primary/70;
   }

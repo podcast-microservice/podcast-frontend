@@ -17,7 +17,7 @@ interface IProps {
 }
 
 const RegisterStep1 = ({ isShow = false }: IProps) => {
-  const sectionClass = cx('tw-grid tw-gap-2 tw-mt-2', !isShow && 'tw-hidden');
+  const sectionClass = cx('tw-grid tw-gap-3 tw-mt-3', !isShow && 'tw-hidden');
   return (
     <section className={sectionClass}>
       <div className='tw-flex tw-items-center'>
@@ -32,62 +32,60 @@ const RegisterStep1 = ({ isShow = false }: IProps) => {
       </Button>
       <Typography className='tw-text-sm'>or</Typography>
       <div>
-        <Typography>Email Address</Typography>
         <TextField
-          placeholder='enter your email'
+          label='Email Address'
           variant='outlined'
           className='tw-input tw-mt-1'
           size='small'
+          required
           InputProps={{
-            startAdornment: (
+            endAdornment: (
               <InputAdornment position='start'>
-                <MailOutlineOutlinedIcon className='tw-text-[20px] tw-text-border' />
+                <MailOutlineOutlinedIcon className='tw-text-[20px]' />
               </InputAdornment>
             )
           }}
         />
-        <Typography className='tw-text-red-500 tw-text-sm tw-mt-1'>invalid email</Typography>
+        {/* <Typography className='tw-text-red-500 tw-text-sm tw-mt-1'>invalid email</Typography> */}
       </div>
       <div>
-        <Typography>Password</Typography>
         <TextField
-          placeholder='password'
+          label='Password'
           variant='outlined'
           className='tw-input tw-mt-1'
           size='small'
           InputProps={{
-            startAdornment: (
+            endAdornment: (
+              <InputAdornment position='start'>
+                <VisibilityOffIcon className='tw-text-[20px]' />
+              </InputAdornment>
+            )
+          }}
+        />
+        {/* <Typography className='tw-text-red-500 tw-text-sm tw-mt-1'>invalid password</Typography> */}
+      </div>
+      <div>
+        <TextField
+          label='Confirm Password'
+          variant='outlined'
+          className='tw-input tw-mt-1'
+          size='small'
+          InputProps={{
+            endAdornment: (
               <InputAdornment position='start'>
                 <VisibilityOffIcon className='tw-text-[20px] tw-text-border' />
               </InputAdornment>
             )
           }}
         />
-        <Typography className='tw-text-red-500 tw-text-sm tw-mt-1'>invalid password</Typography>
+        {/* <Typography className='tw-text-red-500 tw-text-sm tw-mt-1'>invalid password</Typography> */}
       </div>
-      <div>
-        <Typography>Confirm Password</Typography>
-        <TextField
-          placeholder='password'
-          variant='outlined'
-          className='tw-input tw-mt-1'
-          size='small'
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position='start'>
-                <VisibilityOffIcon className='tw-text-[20px] tw-text-border' />
-              </InputAdornment>
-            )
-          }}
-        />
-        <Typography className='tw-text-red-500 tw-text-sm tw-mt-1'>invalid password</Typography>
-      </div>
-      <div className='tw-flex tw-flex-row tw-items-center tw-justify-between tw-mt-1'>
+      <div className='tw-flex tw-flex-row tw-items-center tw-justify-between tw-mt-4'>
         <Typography>
-          Step <Typography className='tw-text-primary tw-inline'>1</Typography> of 2
+          Step <span className='tw-text-primary'>1</span> of 2
         </Typography>
         <Button
-          type='button'
+          type='submit'
           variant='contained'
           size='large'
           className='tw-btn tw-btn-primary tw-text-black tw-w-24 tw-h-11'

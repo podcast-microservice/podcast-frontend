@@ -1,4 +1,3 @@
-import React from 'react';
 import { RegisterForm } from '~/features/auth';
 
 const RegisterPage = () => {
