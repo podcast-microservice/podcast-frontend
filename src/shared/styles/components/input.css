@@ -3,10 +3,10 @@
     @apply tw-w-full;
   }
   #tw-root .tw-input .MuiInputBase-root {
-    @apply tw-py-1 tw-rounded-md;
+    @apply tw-py-[2px] tw-rounded-md;
   }
   #tw-root .tw-input .MuiInputLabel-root {
-    @apply tw-py-1 tw-text-border;
+    @apply tw-py-[2px] tw-text-border;
   }
   #tw-root .tw-input .MuiInputBase-input {
     @apply tw-text-foreground;

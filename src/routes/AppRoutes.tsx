@@ -3,11 +3,12 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { authSelectors } from '~/features/auth';
 import BasicComponent from '~/pages/BasicComponent';
 import HomePage from '~/pages/HomePage';
-import Login from '~/pages/Login';
+import LoginPage from '~/pages/LoginPage';
 import { routes } from './routes';
 import Layout from '~/shared/components/Layout';
 import ComplexComponent from '~/pages/ComplexComponent';
 import Podcasts from '~/pages/Podcasts';
+import RegisterPage from '~/pages/RegisterPage';
 
 const AppRoutes = () => {
   const isUserAuthenticated = useSelector(authSelectors.isUserAuthenticated);
@@ -20,7 +21,11 @@ const AppRoutes = () => {
           <Route path={routes.podcastPath} element={<Podcasts />} />
           <Route path={routes.componentPath} element={<BasicComponent />} />
           <Route path={routes.componentComplexPath} element={<ComplexComponent />} />
-          <Route path={routes.loginPath} element={isUserAuthenticated ? <Navigate to='/home' /> : <Login />} />
+          <Route path={routes.loginPath} element={isUserAuthenticated ? <Navigate to='/home' /> : <LoginPage />} />
+          <Route
+            path={routes.registerPath}
+            element={isUserAuthenticated ? <Navigate to='/home' /> : <RegisterPage />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>
