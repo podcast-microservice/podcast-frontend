@@ -8,6 +8,9 @@
   #tw-root .tw-btn-outline-primary {
     @apply tw-border tw-border-solid tw-border-primary/70 tw-text-primary tw-bg-background hover:tw-bg-primary hover:tw-text-foreground;
   }
+  #tw-root .tw-btn-outline-transparent {
+    @apply tw-border tw-border-solid tw-border-primary/70 tw-text-primary tw-bg-transparent hover:tw-bg-primary hover:tw-text-foreground;
+  }
   #tw-root .tw-btn-outline-default {
     @apply tw-border tw-border-solid tw-border-border tw-text-border tw-bg-background hover:tw-text-primary/90 hover:tw-border-primary/90;
   }

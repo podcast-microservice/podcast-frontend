@@ -23,6 +23,7 @@ const config = {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         illustration: 'hsl(var(--illustration))',
+        'lighter-background': 'hsl(var(--lighter-background))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))'
