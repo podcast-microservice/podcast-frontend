@@ -25,7 +25,6 @@ const Header = () => {
         <div className='tw-hidden lg:tw-flex'>
           <NavigationMenu navigationLinks={mainNavigationLinks} />
         </div>
-        <ToggleTheme />
         <Link to={routes.loginPath} className='tw-hidden lg:tw-flex tw-flex-row tw-items-center'>
           <Typography className='tw-font-bold'>Login</Typography>
           <IconRound
@@ -35,6 +34,9 @@ const Header = () => {
             hasRing
           />
         </Link>
+        <div className='tw-hidden lg:tw-flex tw-cursor-pointer'>
+          <ToggleTheme />
+        </div>
       </nav>
     </header>
   );

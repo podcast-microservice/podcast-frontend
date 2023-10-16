@@ -22,7 +22,13 @@ const DrawerMenu = () => {
   };
   const drawerContent = () => (
     <Box
-      sx={{ width: 250 }}
+      sx={{
+        width: 250,
+        height: '100%',
+        display: 'flex',
+        'flex-direction': 'column',
+        'justify-content': 'space-between'
+      }}
       role='presentation'
       onClick={() => {
         toggleDrawer(false);
@@ -31,7 +37,7 @@ const DrawerMenu = () => {
         toggleDrawer(false);
       }}
     >
-      <List>
+      <List className='tw-mb-10'>
         {mainNavigationLinks.map((link, index) => (
           <Link key={index} to={link.path}>
             <ListItem className='hover:tw-bg-card' disablePadding>
@@ -43,16 +49,18 @@ const DrawerMenu = () => {
           </Link>
         ))}
       </List>
-      <Link to={routes.loginPath} className='tw-flex tw-flex-row tw-items-center tw-justify-center'>
-        <IconRound
-          icon={<PersonIcon className='tw-text-[20px] tw-text-background' />}
-          backgroundColor='primary'
-          className='tw-mr-2'
-          hasRing
-        />
-        <Typography className='tw-font-bold'>Login</Typography>
-      </Link>
-      <ToggleTheme />
+      <div className='tw-flex tw-justify-between'>
+        <ToggleTheme />
+        <Link to={routes.loginPath} className='tw-flex tw-flex-row tw-items-center tw-justify-center'>
+          <IconRound
+            icon={<PersonIcon className='tw-text-[20px] tw-text-background' />}
+            backgroundColor='primary'
+            className='tw-mr-2'
+            hasRing
+          />
+          <Typography className='tw-font-bold'>Login</Typography>
+        </Link>
+      </div>
     </Box>
   );
   return (

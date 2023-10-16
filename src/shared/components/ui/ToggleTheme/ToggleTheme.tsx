@@ -18,12 +18,7 @@ const ToggleTheme = () => {
   }, [theme]);
   return (
     <>
-      <IconButton
-        aria-label='fingerprint'
-        className='tw-mr-3 md:tw-mr-10 tw-bg-primary tw-text-background'
-        size='medium'
-        onClick={toggleTheme}
-      >
+      <IconButton className='tw-mr-3 md:tw-mr-10 tw-bg-primary tw-text-background' size='medium' onClick={toggleTheme}>
         {theme === 'dark' ? <DarkModeIcon /> : <LightModeIcon />}
       </IconButton>
     </>
