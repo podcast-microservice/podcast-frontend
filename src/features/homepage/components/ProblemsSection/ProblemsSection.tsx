@@ -13,8 +13,8 @@ const ProblemsSection = () => {
       </Typography>
       <hr className=' tw-border-b-2 tw-border-primary tw-w-28 tw-mb-10' data-aos='fade-down' />
       <div className='tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-4'>
-        {mockData.map((item) => (
-          <ProblemItem {...item} />
+        {mockData.map((item, index) => (
+          <ProblemItem {...item} key={index} />
         ))}
       </div>
     </section>
