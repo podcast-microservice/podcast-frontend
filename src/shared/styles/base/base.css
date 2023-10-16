@@ -28,14 +28,14 @@
     --input: 0 5% 80%;
     --footer: 0 0% 20%;
     --ring: 222.2 84% 4.9%;
-    --illustration: 39 100% 90%;
     --radius: 0.5rem;
     --lighter-background: 240 5% 96%;
+    --illustration: 39 100% 90%;
     --gradient: linear-gradient(
       to right top,
-      #ff8759,
-      #ff955c,
-      #ffa260,
+      #ff8e59,
+      #ff8d5c,
+      #ff9a60,
       #feaf67,
       #fdbc6f,
       #fdc275,
@@ -78,22 +78,22 @@ html.dark {
   --input: 0 5% 50%;
   --footer: 0 0% 5%;
   --ring: 212.7 26.8% 83.9%;
-  --illustration: 40 96% 40%;
   --lighter-background: 240 6% 10%;
+  --illustration: 39 100% 80%;
   --gradient: linear-gradient(
     to right top,
-    #7a412b,
-    #7b482d,
-    #7b4f30,
-    #7c5633,
-    #7c5d38,
-    #7d603b,
-    #7d643d,
-    #7e6740,
-    #806740,
-    #816841,
-    #836841,
-    #856842
+    #ff8859f5,
+    #ff955cef,
+    #ffa260e6,
+    #feb067ea,
+    #fdbd6feb,
+    #fdc275f0,
+    #fdc77bed,
+    #fdce82e7,
+    #fece86e3,
+    #fece8ae1,
+    #ffd08ee2,
+    #ffd092dd
   );
 }
 
