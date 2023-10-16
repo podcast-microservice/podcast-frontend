@@ -1,5 +1,3 @@
-import { Dayjs } from 'dayjs';
-
 export type LoginInput = {
   username: string;
   password: string;
@@ -14,7 +12,7 @@ export interface RegisterStep1Payload {
 export interface RegisterStep2Payload extends RegisterStep1Payload {
   fullName: string;
   phoneNumber: string;
-  dateOfBirth: Dayjs;
+  dateOfBirth: Date | null;
   isAcceptedCondition: boolean;
 }
 

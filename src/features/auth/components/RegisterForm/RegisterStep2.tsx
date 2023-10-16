@@ -31,14 +31,18 @@ const FormSchema = z.object({
   isAcceptedCondition: z.boolean(),
   dateOfBirth: z
     .object({
-      $d: z.coerce.date().max(new Date('12-31-2019'))
+      $d: z.coerce.date().max(new Date())
     })
     .transform((arg) => arg.$d)
 });
 
 const RegisterStep2 = ({ onBackToPreviousStep }: IProps) => {
   const { registerField } = useContext(RegisterContext) as RegisterContextType;
-  const { handleSubmit, control } = useForm<RegisterStep2Payload>({
+  const {
+    handleSubmit,
+    control,
+    formState: { isDirty }
+  } = useForm<RegisterStep2Payload>({
     defaultValues: registerField,
     resolver: zodResolver(FormSchema)
   });
@@ -49,13 +53,18 @@ const RegisterStep2 = ({ onBackToPreviousStep }: IProps) => {
       password: formData.password,
       fullName: formData.fullName,
       phoneNumber: formData.phoneNumber,
-      dateOfBirth: formData.dateOfBirth as unknown as Date
+      dateOfBirth: formData.dateOfBirth as Date
     };
-    // TODO: Call api here
+    // TODO: Call api
     console.log(registerPayload);
   };
 
   const handleBackToPreviousStep = () => {
+    // TODO: handle dirty data
+    if (isDirty) {
+      console.log('dirty data');
+      return;
+    }
     onBackToPreviousStep();
   };
 
@@ -112,7 +121,9 @@ const RegisterStep2 = ({ onBackToPreviousStep }: IProps) => {
                 {...field}
               />
               {fieldState.error && (
-                <Typography className='tw-text-red-500 tw-text-sm tw-mt-1'>Date must be before 2020</Typography>
+                <Typography className='tw-text-red-500 tw-text-sm tw-mt-1'>
+                  Date of birth must be today or in the past.
+                </Typography>
               )}
             </div>
           );
@@ -142,7 +153,7 @@ const RegisterStep2 = ({ onBackToPreviousStep }: IProps) => {
             onClick={handleBackToPreviousStep}
             variant='contained'
             size='large'
-            className='tw-btn tw-btn-outline-default tw-w-24 tw-h-11'
+            className='tw-btn tw-btn-outline-default tw-w-20 tw-h-11'
           >
             Back
           </Button>

@@ -6,8 +6,8 @@ import { useFormStep } from '../../hooks/useFormStep';
 const RegisterForm = () => {
   const { currentStep, goToNextStep, backToPreviousStep } = useFormStep(2);
   return (
-    <div className='tw-h-full tw-w-full sm:tw-h-[85%] sm:tw-w-9/12 tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-rounded-none sm:tw-rounded-2xl lg:tw-rounded-3xl tw-overflow-hidden'>
-      <div className='tw-bg-background tw-px-16 tw-flex tw-items-center'>
+    <div className='tw-h-[80%] tw-w-11/12 sm:tw-h-[85%] sm:tw-w-9/12 tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-rounded-xl sm:tw-rounded-2xl lg:tw-rounded-3xl tw-overflow-hidden'>
+      <div className='tw-bg-background tw-px-12 tw-flex tw-items-center'>
         <div className='tw-w-full'>
           <Typography className='tw-text-2xl'>Register</Typography>
           {currentStep === 1 && <RegisterStep1 onGoToNextStep={goToNextStep} />}

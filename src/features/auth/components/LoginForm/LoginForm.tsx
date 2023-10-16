@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
   return (
-    <div className='tw-h-full tw-w-full sm:tw-h-[85%] sm:tw-w-9/12 tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-rounded-none sm:tw-rounded-2xl lg:tw-rounded-3xl tw-overflow-hidden'>
+    <div className='tw-h-[80%] tw-w-11/12 sm:tw-h-[85%] sm:tw-w-9/12 tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-rounded-xl sm:tw-rounded-2xl lg:tw-rounded-3xl tw-overflow-hidden'>
       <div className='tw-hidden lg:tw-flex tw-bg-illustration tw-items-center'>
         <img
           src='https://d258zg1zfzxoto.cloudfront.net/static-images/login-illustration.png'

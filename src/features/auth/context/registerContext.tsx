@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { RegisterContextType } from '../models/registerContext';
 import { RegisterStep2Payload } from '../models/requestModel';
-import dayjs from 'dayjs';
 
 export const RegisterContext = React.createContext<RegisterContextType | null>(null);
 
@@ -16,7 +15,7 @@ const RegisterProvider: React.FC<IProps> = ({ children }) => {
     confirmPassword: '',
     fullName: '',
     phoneNumber: '',
-    dateOfBirth: dayjs('12-31-2019'),
+    dateOfBirth: null,
     isAcceptedCondition: false
   });
   return <RegisterContext.Provider value={{ registerField, setRegisterField }}>{children}</RegisterContext.Provider>;
