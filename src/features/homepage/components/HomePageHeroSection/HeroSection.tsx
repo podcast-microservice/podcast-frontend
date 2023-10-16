@@ -4,7 +4,7 @@ const HeroSection = () => {
   return (
     <section
       className="tw-h-[calc(100vh-5rem)] tw-flex tw-flex-col tw-justify-center tw-items-center 
-        tw-bg-[linear-gradient(to_right_bottom,rgba(60,60,60,0.5),rgba(60,60,60,0.5)),url('https://d258zg1zfzxoto.cloudfront.net/static-images/hero-image.jpg')]
+        tw-bg-[linear-gradient(to_right_bottom,rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('https://d258zg1zfzxoto.cloudfront.net/static-images/hero-image.jpg')]
         tw-bg-no-repeat 
         tw-bg-cover 
         tw-bg-center
