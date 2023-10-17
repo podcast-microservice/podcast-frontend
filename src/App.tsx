@@ -11,15 +11,15 @@ import { AppRoutes } from './routes';
 
 function App() {
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <QueryClientProvider client={queryClient}>
-        <ReduxProvider store={store}>
+    <QueryClientProvider client={queryClient}>
+      <ReduxProvider store={store}>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
           <ThemeProvider theme={muiTheme}>
             <AppRoutes />
           </ThemeProvider>
-        </ReduxProvider>
-      </QueryClientProvider>
-    </LocalizationProvider>
+        </LocalizationProvider>
+      </ReduxProvider>
+    </QueryClientProvider>
   );
 }
 
