@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
 const ToggleTheme = () => {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
   const toggleTheme = () => {
@@ -18,9 +19,15 @@ const ToggleTheme = () => {
   }, [theme]);
   return (
     <>
-      <IconButton className='tw-mr-3 md:tw-mr-10 tw-bg-primary tw-text-background' size='medium' onClick={toggleTheme}>
-        {theme === 'dark' ? <DarkModeIcon /> : <LightModeIcon />}
-      </IconButton>
+      <Tooltip title={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}>
+        <IconButton
+          className='tw-mr-3 md:tw-mr-10 tw-bg-primary tw-text-background'
+          size='medium'
+          onClick={toggleTheme}
+        >
+          {theme === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
+        </IconButton>
+      </Tooltip>
     </>
   );
 };
