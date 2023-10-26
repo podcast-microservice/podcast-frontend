@@ -7,7 +7,7 @@ import IconRound from '~/shared/components/ui/IconRound';
 import NavigationMenu from '~/shared/components/ui/NavigationMenu';
 import { DrawerMenu } from '../ui/DrawerMenu';
 import { mainNavigationLinks } from '~/shared/utils/constants/navigation-link';
-import { ToggleTheme } from '../ui/ToggleTheme';
+import ToggleTheme from '../ui/ToggleTheme';
 
 const Header = () => {
   return (
@@ -22,19 +22,19 @@ const Header = () => {
         <div className='tw-justify-self-end lg:tw-hidden'>
           <DrawerMenu />
         </div>
-        <div className='tw-hidden lg:tw-flex'>
+        <div className='tw-hidden lg:tw-block'>
           <NavigationMenu navigationLinks={mainNavigationLinks} />
         </div>
-        <Link to={routes.loginPath} className='tw-hidden lg:tw-flex tw-flex-row tw-items-center'>
-          <Typography className='tw-font-bold'>Login</Typography>
-          <IconRound
-            icon={<PersonIcon className='tw-text-[20px] tw-text-background' />}
-            backgroundColor='primary'
-            className='tw-ml-2'
-            hasRing
-          />
-        </Link>
-        <div className='tw-hidden lg:tw-flex tw-cursor-pointer'>
+        <div className='tw-hidden lg:tw-flex'>
+          <Link to={routes.loginPath} className='tw-hidden lg:tw-flex tw-flex-row tw-items-center tw-mr-2'>
+            <Typography className='tw-font-bold'>Login</Typography>
+            <IconRound
+              icon={<PersonIcon className='tw-text-[20px] tw-text-background' />}
+              backgroundColor='primary'
+              className='tw-ml-2'
+              hasRing
+            />
+          </Link>
           <ToggleTheme />
         </div>
       </nav>

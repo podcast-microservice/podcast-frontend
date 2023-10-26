@@ -11,11 +11,15 @@ import IconRound from '~/shared/components/ui/IconRound';
 import Box from '@mui/material/Box';
 import { routes } from '~/routes';
 import Drawer from '@mui/material/Drawer';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Divider from '@mui/material/Divider';
 import { mainNavigationLinks } from '~/shared/utils/constants/navigation-link';
 import { ToggleTheme } from '../ToggleTheme';
+import cx from 'classnames';
+
 const DrawerMenu = () => {
+  const location = useLocation();
+  const currentRoute = location.pathname;
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
   const toggleDrawer = (isOpen: boolean) => {
     setIsOpenSidebar(isOpen);
@@ -38,16 +42,22 @@ const DrawerMenu = () => {
       }}
     >
       <List className='tw-mb-10'>
-        {mainNavigationLinks.map((link, index) => (
-          <Link key={index} to={link.path}>
-            <ListItem className='hover:tw-bg-card' disablePadding>
-              <ListItemButton>
-                <ListItemText primary={link.title} />
-              </ListItemButton>
-            </ListItem>
-            {index !== mainNavigationLinks.length - 1 && <Divider light className='tw-border-primary' />}
-          </Link>
-        ))}
+        {mainNavigationLinks.map((link, index) => {
+          const listItemTextClass = cx(
+            'hover:tw-text-primary',
+            currentRoute && currentRoute.includes(link.path) && 'tw-text-primary'
+          );
+          return (
+            <Link key={index} to={link.path}>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemText className={listItemTextClass} primary={link.title} />
+                </ListItemButton>
+              </ListItem>
+              {index !== mainNavigationLinks.length - 1 && <Divider light className='tw-border-primary' />}
+            </Link>
+          );
+        })}
       </List>
       <div className='tw-flex tw-justify-between'>
         <ToggleTheme />

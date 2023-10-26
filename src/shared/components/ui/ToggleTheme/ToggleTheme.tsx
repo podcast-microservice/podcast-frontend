@@ -3,32 +3,29 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
+import { getTheme, themes, updateTheme } from '~/shared/utils/themes';
+
 const ToggleTheme = () => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+  const [theme, setTheme] = useState<string>(getTheme());
   const toggleTheme = () => {
-    const tempTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(tempTheme);
+    setTheme((prevTheme) => {
+      return prevTheme === themes.dark ? themes.light : themes.dark;
+    });
   };
   useEffect(() => {
-    localStorage.setItem('theme', theme);
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    updateTheme(theme);
   }, [theme]);
+
   return (
-    <>
-      <Tooltip title={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}>
-        <IconButton
-          className='tw-mr-3 md:tw-mr-10 tw-bg-primary tw-text-background'
-          size='medium'
-          onClick={toggleTheme}
-        >
-          {theme === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
-        </IconButton>
-      </Tooltip>
-    </>
+    <Tooltip title={theme === themes.dark ? 'Light Mode' : 'Dark Mode'}>
+      <IconButton className='tw-bg-primary tw-text-background tw-h-10 tw-w-10' size='medium' onClick={toggleTheme}>
+        {theme === themes.dark ? (
+          <LightModeIcon className='tw-text-[20px]' />
+        ) : (
+          <DarkModeIcon className='tw-text-[20px]' />
+        )}
+      </IconButton>
+    </Tooltip>
   );
 };
 
