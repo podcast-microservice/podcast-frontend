@@ -7,8 +7,8 @@ import LoginPage from '~/pages/LoginPage';
 import { routes } from './routes';
 import Layout from '~/shared/components/Layout';
 import ComplexComponent from '~/pages/ComplexComponent';
-import Podcasts from '~/pages/Podcasts';
 import RegisterPage from '~/pages/RegisterPage';
+import PodcastPage from '~/pages/PodcastPage';
 
 const AppRoutes = () => {
   const isUserAuthenticated = useSelector(authSelectors.isUserAuthenticated);
@@ -18,7 +18,7 @@ const AppRoutes = () => {
         <Route element={<Layout />}>
           <Route path='/' element={<Navigate to='/home' />} />
           <Route path={routes.homePath} element={<HomePage />} />
-          <Route path={routes.podcastPath} element={<Podcasts />} />
+          <Route path={routes.podcastPath} element={<PodcastPage />} />
           <Route path={routes.componentPath} element={<BasicComponent />} />
           <Route path={routes.componentComplexPath} element={<ComplexComponent />} />
           <Route path={routes.loginPath} element={isUserAuthenticated ? <Navigate to='/home' /> : <LoginPage />} />

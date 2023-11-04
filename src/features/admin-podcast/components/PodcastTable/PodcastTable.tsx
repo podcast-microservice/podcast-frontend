@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import EnhancedTable from '~/shared/components/ui/EnhancedTable/EnhancedTable';
 import { HeadCell } from '~/shared/utils/models/tableSort';
-import { podcastActions, podcastSelectors } from '../..';
+import { adminPodcastActions, adminPodcastSelectors } from '../..';
 import { Podcast } from '../../models/Podcast';
 import { podcastHooks } from '../../hooks';
 
@@ -22,12 +22,12 @@ const podcastsCell: readonly HeadCell<Podcast>[] = [
 
 const PodcastTable = () => {
   const dispatch = useDispatch();
-  const podcastsSelected = useSelector(podcastSelectors.getPodcastsSelected);
+  const podcastsSelected = useSelector(adminPodcastSelectors.getPodcastsSelected);
 
   const { data: podcastsData, isLoading, isError } = podcastHooks.usePodcasts();
 
   const handleSelectPodcast = (ids: readonly string[]) => {
-    dispatch(podcastActions.setPodcastSelected(ids));
+    dispatch(adminPodcastActions.setPodcastSelected(ids));
   };
 
   if (isLoading) {

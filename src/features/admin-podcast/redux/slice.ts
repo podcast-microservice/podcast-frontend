@@ -7,8 +7,8 @@ const initialState = {
   podcastsSelected: []
 };
 
-const podcastSlice = createSlice({
-  name: 'podcasts',
+const adminPodcastSlice = createSlice({
+  name: 'admin-podcasts',
   initialState,
   reducers: {
     setIsCreatingPodcast: (state, { payload }) => {
@@ -26,4 +26,4 @@ const podcastSlice = createSlice({
   }
 });
 
-export const { name, actions, reducer } = podcastSlice;
+export const { name, actions, reducer } = adminPodcastSlice;

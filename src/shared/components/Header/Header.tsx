@@ -11,8 +11,8 @@ import ToggleTheme from '../ui/ToggleTheme';
 
 const Header = () => {
   return (
-    <header className='tw-h-20 tw-shadow-md tw-shadow-primary/60 tw-fixed tw-w-full tw-bg-background tw-top-0 tw-left-0 tw-z-[99]'>
-      <nav className='tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-mx-auto tw-p-4 tw-max-w-screen-xl'>
+    <header className='tw-h-20 tw-shadow-md tw-shadow-primary/60 tw-fixed tw-w-full tw-px-[5%] lg:tw-px-[8%] tw-bg-background tw-top-0 tw-left-0 tw-z-[99]'>
+      <nav className='tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-h-full'>
         <Link to={routes.homePath} className='tw-flex tw-flex-row tw-items-center'>
           <Logo className='tw-w-8 sm:tw-w-11' />
           <Typography className='tw-text-xl sm:tw-text-2xl tw-ml-2 tw-font-bold'>Psych</Typography>

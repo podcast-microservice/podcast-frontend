@@ -1,16 +1,19 @@
 import Paper from '@mui/material/Paper';
 import { useDispatch, useSelector } from 'react-redux';
-import { podcastActions, podcastSelectors } from '~/features/podcast';
-import PodcastCreateDrawer from '~/features/podcast/components/PodcastCreateDrawer';
-import PodcastTable from '~/features/podcast/components/PodcastTable';
+import {
+  PodcastCreateDrawer,
+  PodcastTable,
+  adminPodcastActions,
+  adminPodcastSelectors
+} from '~/features/admin-podcast';
 import EnhancedTableToolbar from '~/shared/components/ui/EnhancedTable/EnhancedTableToolbar';
 
-const Podcasts = () => {
+const AdminPodcastPage = () => {
   const dispatch = useDispatch();
-  const podcastsSelected = useSelector(podcastSelectors.getPodcastsSelected);
+  const podcastsSelected = useSelector(adminPodcastSelectors.getPodcastsSelected);
 
   const handleCreateItem = () => {
-    dispatch(podcastActions.setIsCreatingPodcast(true));
+    dispatch(adminPodcastActions.setIsCreatingPodcast(true));
   };
 
   const handleEditData = () => {
@@ -18,7 +21,7 @@ const Podcasts = () => {
   };
 
   const handleOpenDeleteDialog = () => {
-    dispatch(podcastActions.setIsDeletingPodcast(true));
+    dispatch(adminPodcastActions.setIsDeletingPodcast(true));
   };
   return (
     <>
@@ -37,4 +40,4 @@ const Podcasts = () => {
   );
 };
 
-export default Podcasts;
+export default AdminPodcastPage;

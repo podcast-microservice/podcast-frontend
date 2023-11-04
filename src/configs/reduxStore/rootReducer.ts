@@ -1,11 +1,11 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import { authReducer } from '~/features/auth';
-import { podcastReducer } from '~/features/podcast';
+import { adminPodcastReducer } from '~/features/admin-podcast';
 
 const createReducer = (injectedReducers = {}) => {
   const appReducer = combineReducers({
     auth: authReducer,
-    podcasts: podcastReducer,
+    adminPodcasts: adminPodcastReducer,
     ...injectedReducers
   });
 
