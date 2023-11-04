@@ -36,4 +36,8 @@
   #tw-root .tw-input-invalid .MuiSvgIcon-root {
     @apply tw-text-red-500;
   }
+
+  #tw-root .tw-input-rounded .MuiInputBase-root {
+    @apply tw-py-[2px] tw-rounded-full;
+  }
 }

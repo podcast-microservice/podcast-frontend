@@ -25,9 +25,5 @@ export const mainNavigationLinks: Array<NavigationLink> = [
   {
     title: 'News',
     path: routes.newsPath
-  },
-  {
-    title: 'Components',
-    path: routes.componentPath
   }
 ];

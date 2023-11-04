@@ -2,16 +2,16 @@ import { UseFormReset } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { useDispatch } from 'react-redux';
 import { queryClient } from '~/configs/queryClient';
-import { podcastActions, podcastApi, podcastKeys } from '..';
+import { adminPodcastActions, adminPodcastKeys, adminPodcastApi } from '..';
 import { PodcastCreatePayload } from '../models/PodcastCreatePayload';
 
 export const useCreatePodcast = (resetFunction: UseFormReset<PodcastCreatePayload>) => {
   const dispatch = useDispatch();
-  return useMutation(podcastApi.createPodcast, {
+  return useMutation(adminPodcastApi.createPodcast, {
     onSuccess: () => {
-      dispatch(podcastActions.setIsCreatingPodcast(false));
+      dispatch(adminPodcastActions.setIsCreatingPodcast(false));
       resetFunction({ title: '', description: '' });
-      queryClient.invalidateQueries(podcastKeys.lists());
+      queryClient.invalidateQueries(adminPodcastKeys.lists());
     }
   });
 };

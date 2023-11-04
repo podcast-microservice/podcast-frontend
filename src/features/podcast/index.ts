@@ -1,3 +1,3 @@
-export { actions as podcastActions, reducer as podcastReducer } from './redux/slice';
-export { podcastSelectors } from './redux/selectors';
-export { podcastApi, podcastKeys } from './services/api';
+export { LatestPodcast } from './components/LatestPodcast';
+export { FilterPodcast } from './components/FilterPodcast';
+export { PodcastList } from './components/PodcastList';

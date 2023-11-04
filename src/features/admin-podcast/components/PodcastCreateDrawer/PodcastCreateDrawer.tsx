@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { podcastActions, podcastSelectors } from '../..';
+import { adminPodcastActions, adminPodcastSelectors } from '../..';
 import { useCreatePodcast } from '../../hooks/useCreatePodcast';
 import { PodcastCreatePayload } from '../../models/PodcastCreatePayload';
 
@@ -29,7 +29,7 @@ const PodcastCreateDrawer = () => {
     resolver: zodResolver(FormSchema)
   });
 
-  const isCreatingPodcast = useSelector(podcastSelectors.getIsCreatingPodcast);
+  const isCreatingPodcast = useSelector(adminPodcastSelectors.getIsCreatingPodcast);
 
   const { mutate: createPodcast, isLoading: isCreatingPodcastAsync } = useCreatePodcast(reset);
 
@@ -42,7 +42,7 @@ const PodcastCreateDrawer = () => {
       anchor='right'
       open={isCreatingPodcast}
       onClose={() => {
-        dispatch(podcastActions.setIsCreatingPodcast(false));
+        dispatch(adminPodcastActions.setIsCreatingPodcast(false));
       }}
       transitionDuration={{ enter: 500, exit: 300 }}
       className='tw-drawer'

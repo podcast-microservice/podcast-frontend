@@ -14,7 +14,7 @@ import Drawer from '@mui/material/Drawer';
 import { Link, useLocation } from 'react-router-dom';
 import Divider from '@mui/material/Divider';
 import { mainNavigationLinks } from '~/shared/utils/constants/navigation-link';
-import { ToggleTheme } from '../ToggleTheme';
+import ToggleTheme from '../ToggleTheme';
 import cx from 'classnames';
 
 const DrawerMenu = () => {
@@ -80,6 +80,7 @@ const DrawerMenu = () => {
         onClick={() => {
           toggleDrawer(true);
         }}
+        className='tw-p-0'
       >
         <MenuIcon className='tw-text-primary' fontSize='inherit' />
       </IconButton>
