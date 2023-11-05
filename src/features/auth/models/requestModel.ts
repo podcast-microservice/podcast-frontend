@@ -1,5 +1,5 @@
-export type LoginInput = {
-  username: string;
+export type LoginPayload = {
+  email: string;
   password: string;
 };
 
