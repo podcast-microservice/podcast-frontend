@@ -1,5 +1,5 @@
-import { LoginInput } from '../../models/requestModel';
+import { LoginPayload } from '../../models/requestModel';
 
-export const login = async (loginInput: LoginInput) => {
-  console.log(loginInput);
+export const login = async (loginPayload: LoginPayload) => {
+  console.log(loginPayload);
 };
