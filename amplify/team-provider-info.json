@@ -1,0 +1,25 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-podcastfrontend-dev-95902-authRole",
+      "UnauthRoleArn": "arn:aws:iam::722886550501:role/amplify-podcastfrontend-dev-95902-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::722886550501:role/amplify-podcastfrontend-dev-95902-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-podcastfrontend-dev-95902-deployment",
+      "UnauthRoleName": "amplify-podcastfrontend-dev-95902-unauthRole",
+      "StackName": "amplify-podcastfrontend-dev-95902",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:722886550501:stack/amplify-podcastfrontend-dev-95902/48f56ff0-7b87-11ee-9a82-0697f886d8c4",
+      "AmplifyAppId": "d3976r3knsyhj4"
+    },
+    "categories": {
+      "auth": {
+        "podcastfrontendcc183d99": {
+          "userPoolId": "ap-southeast-1_UZZ0Ve53J",
+          "userPoolName": "dev-podcast-user-pool",
+          "webClientId": "6td7jftsbilmdhjknc014so0br",
+          "nativeClientId": "6td7jftsbilmdhjknc014so0br"
+        }
+      }
+    }
+  }
+}
