@@ -1,5 +1,9 @@
+import { Auth } from 'aws-amplify';
 import { LoginPayload } from '../../models/requestModel';
 
-export const login = async (loginPayload: LoginPayload) => {
-  console.log(loginPayload);
-};
+export function login({ username, password }: LoginPayload) {
+  return Auth.signIn({
+    username,
+    password
+  });
+}

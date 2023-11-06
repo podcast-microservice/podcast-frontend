@@ -1,0 +1,45 @@
+{
+  "auth": {
+    "podcastfrontendcc183d99": {
+      "customAuth": false,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "imported"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_auth_podcastfrontendcc183d99_nativeClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "podcastfrontendcc183d99"
+        }
+      ]
+    },
+    "AMPLIFY_auth_podcastfrontendcc183d99_userPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "podcastfrontendcc183d99"
+        }
+      ]
+    },
+    "AMPLIFY_auth_podcastfrontendcc183d99_userPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "podcastfrontendcc183d99"
+        }
+      ]
+    },
+    "AMPLIFY_auth_podcastfrontendcc183d99_webClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "podcastfrontendcc183d99"
+        }
+      ]
+    }
+  }
+}
