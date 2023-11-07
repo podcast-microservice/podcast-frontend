@@ -1,18 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { login } from './actions';
+import { login, checkSession } from './actions';
 
 export interface AuthCognitoState {
   isLoading: boolean;
-  userData?: { email: string };
+  userData?: { email: string; role: string };
   isUserAuthenticated: boolean;
-  isCheck: boolean;
 }
 
 const initialState: AuthCognitoState = {
   isLoading: false,
   userData: undefined,
-  isUserAuthenticated: false,
-  isCheck: false
+  isUserAuthenticated: false
 };
 
 const authSlice = createSlice({
@@ -21,9 +19,6 @@ const authSlice = createSlice({
   reducers: {
     setIsAuthenticated: (state, { payload }) => {
       state.isUserAuthenticated = payload;
-    },
-    setIsCheckToTrue: (state) => {
-      state.isCheck = true;
     }
   },
   extraReducers: (builder) => {
@@ -38,6 +33,14 @@ const authSlice = createSlice({
       })
       .addCase(login.rejected, (state) => {
         state.isLoading = false;
+      })
+      .addCase(checkSession.fulfilled, (state, { payload }) => {
+        state.isUserAuthenticated = true;
+        state.userData = payload.userData;
+      })
+      .addCase(checkSession.rejected, (state) => {
+        state.isUserAuthenticated = false;
+        state.userData = undefined;
       });
   }
 });
@@ -45,5 +48,6 @@ const authSlice = createSlice({
 export const { name, reducer } = authSlice;
 export const actions = {
   ...authSlice.actions,
-  login
+  login,
+  checkSession
 };

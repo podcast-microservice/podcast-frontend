@@ -4,4 +4,6 @@ const isUserAuthenticated = (state: RootState): boolean => state?.auth?.isUserAu
 
 const isLoading = (state: RootState): boolean => state?.auth?.isLoading;
 
-export const authSelectors = { isUserAuthenticated, isLoading };
+const userData = (state: RootState): { email: string; role: string } | undefined => state?.auth?.userData;
+
+export const authSelectors = { isUserAuthenticated, isLoading, userData };
