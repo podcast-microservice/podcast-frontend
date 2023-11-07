@@ -6,6 +6,11 @@ export const routes = {
   coursePath: '/courses',
   blogPath: '/blogs',
   newsPath: '/news',
+  adminPodcastPath: '/admin/podcast',
   componentPath: '/components',
   componentComplexPath: '/components/complex'
+};
+
+export const adminRoutes = {
+  podcast: 'podcast'
 };

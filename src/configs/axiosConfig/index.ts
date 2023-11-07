@@ -9,8 +9,10 @@ const axiosConfig = axios.create({
 });
 
 axiosConfig.interceptors.request.use(async (config) => {
-  if (getAccessToken()) {
-    config.headers!.token = `Bearer ${getAccessToken() as string}`;
+  const accessToken = getAccessToken();
+  if (accessToken) {
+    console.log(accessToken);
+    config.headers!.token = `Bearer ${accessToken as string}`;
   }
   return config;
 });

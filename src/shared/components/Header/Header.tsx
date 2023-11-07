@@ -8,8 +8,11 @@ import NavigationMenu from '~/shared/components/ui/NavigationMenu';
 import { DrawerMenu } from '../ui/DrawerMenu';
 import { mainNavigationLinks } from '~/shared/utils/constants/navigation-link';
 import ToggleTheme from '../ui/ToggleTheme';
+import { authSelectors } from '~/features/auth';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+  const userData = useSelector(authSelectors.userData);
   return (
     <header className='tw-h-20 tw-shadow-md tw-shadow-primary/60 tw-fixed tw-w-full tw-px-[5%] lg:tw-px-[8%] tw-bg-background tw-top-0 tw-left-0 tw-z-[99]'>
       <nav className='tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-h-full'>
@@ -26,15 +29,21 @@ const Header = () => {
           <NavigationMenu navigationLinks={mainNavigationLinks} />
         </div>
         <div className='tw-hidden lg:tw-flex'>
-          <Link to={routes.loginPath} className='tw-hidden lg:tw-flex tw-flex-row tw-items-center tw-mr-2'>
-            <Typography className='tw-font-bold'>Login</Typography>
-            <IconRound
-              icon={<PersonIcon className='tw-text-[20px] tw-text-background' />}
-              backgroundColor='primary'
-              className='tw-ml-2'
-              hasRing
-            />
-          </Link>
+          {!userData ? (
+            <Link to={routes.loginPath} className='tw-hidden lg:tw-flex tw-flex-row tw-items-center tw-mr-2'>
+              <Typography className='tw-font-bold'>Login</Typography>
+              <IconRound
+                icon={<PersonIcon className='tw-text-[20px] tw-text-background' />}
+                backgroundColor='primary'
+                className='tw-ml-2'
+                hasRing
+              />
+            </Link>
+          ) : (
+            <div className='tw-hidden lg:tw-flex tw-flex-row tw-items-center tw-mr-2'>
+              <Typography className='tw-font-bold'>{userData.email}</Typography>
+            </div>
+          )}
           <ToggleTheme />
         </div>
       </nav>

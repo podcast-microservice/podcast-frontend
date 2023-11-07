@@ -11,6 +11,10 @@
   #tw-root .tw-input .MuiInputBase-input {
     @apply tw-text-foreground;
   }
+  #tw-root .tw-input .MuiInputBase-input.Mui-disabled {
+    -webkit-text-fill-color: var(--foreground);
+    @apply tw-opacity-40;
+  }
   #tw-root .tw-input .MuiSvgIcon-root {
     @apply tw-text-border;
   }
