@@ -1,0 +1,47 @@
+@layer components {
+  #tw-root .tw-input {
+    @apply tw-w-full;
+  }
+  #tw-root .tw-input .MuiInputBase-root {
+    @apply tw-py-[2px] tw-rounded-md;
+  }
+  #tw-root .tw-input .MuiInputLabel-root {
+    @apply tw-py-[2px] tw-text-border;
+  }
+  #tw-root .tw-input .MuiInputBase-input {
+    @apply tw-text-foreground;
+  }
+  #tw-root .tw-input .MuiInputBase-input.Mui-disabled {
+    -webkit-text-fill-color: var(--foreground);
+    @apply tw-opacity-40;
+  }
+  #tw-root .tw-input .MuiSvgIcon-root {
+    @apply tw-text-border;
+  }
+  #tw-root .tw-input .MuiInputLabel-root.Mui-focused {
+    @apply tw-text-primary/70;
+  }
+  #tw-root .tw-input .Mui-focused .MuiSvgIcon-root {
+    @apply tw-text-primary/70;
+  }
+  #tw-root .tw-input .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    @apply tw-border-primary/60;
+  }
+  #tw-root .tw-input .MuiOutlinedInput-notchedOutline {
+    @apply tw-border tw-border-solid tw-border-input;
+  }
+
+  #tw-root .tw-input-invalid .MuiInputLabel-root {
+    @apply tw-text-red-500;
+  }
+  #tw-root .tw-input-invalid .MuiOutlinedInput-notchedOutline {
+    @apply tw-border-red-500;
+  }
+  #tw-root .tw-input-invalid .MuiSvgIcon-root {
+    @apply tw-text-red-500;
+  }
+
+  #tw-root .tw-input-rounded .MuiInputBase-root {
+    @apply tw-py-[2px] tw-rounded-full;
+  }
+}

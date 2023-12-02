@@ -1,0 +1,17 @@
+@layer components {
+  #tw-root .tw-btn {
+    @apply tw-rounded-md tw-font-medium tw-px-4 tw-ring-offset-background tw-transition-all tw-ease-in-out tw-duration-200 focus-visible:tw-outline-none focus-visible:tw-ring-2 focus-visible:tw-ring-ring focus-visible:tw-ring-offset-2 disabled:tw-pointer-events-none disabled:tw-opacity-50 active:tw-scale-[0.85];
+  }
+  #tw-root .tw-btn-primary {
+    @apply tw-border tw-border-solid tw-border-primary tw-bg-primary tw-text-primary-foreground hover:tw-bg-primary/90 hover:tw-drop-shadow-primary;
+  }
+  #tw-root .tw-btn-outline-primary {
+    @apply tw-border tw-border-solid tw-border-primary/70 tw-text-primary tw-bg-background hover:tw-bg-primary hover:tw-text-foreground hover:tw-drop-shadow-primary;
+  }
+  #tw-root .tw-btn-outline-transparent {
+    @apply tw-border tw-border-solid tw-border-primary/70 tw-text-primary tw-bg-transparent hover:tw-bg-primary hover:tw-text-foreground;
+  }
+  #tw-root .tw-btn-outline-default {
+    @apply tw-border tw-border-solid tw-border-border tw-text-border tw-bg-background hover:tw-text-primary/90 hover:tw-border-primary/90 hover:tw-drop-shadow-primary;
+  }
+}

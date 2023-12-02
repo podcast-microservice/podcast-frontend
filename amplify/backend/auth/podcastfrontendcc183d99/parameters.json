@@ -1,0 +1,21 @@
+{
+  "authSelections": "userPoolOnly",
+  "resourceName": "podcastfrontendcc183d99",
+  "serviceType": "imported",
+  "region": "ap-southeast-1",
+  "requiredAttributes": [
+    "email"
+  ],
+  "passwordPolicyMinLength": 8,
+  "passwordPolicyCharacters": [
+    "Requires Lowercase",
+    "Requires Uppercase",
+    "Requires Numbers",
+    "Requires Symbols"
+  ],
+  "mfaConfiguration": "OFF",
+  "autoVerifiedAttributes": [
+    "email"
+  ],
+  "mfaTypes": []
+}

@@ -1,0 +1,8 @@
+@layer components {
+  #tw-root .tw-drawer .MuiDrawer-paper {
+    @apply tw-bg-background tw-text-foreground tw-p-6 tw-shadow-md tw-shadow-primary tw-min-w-[20rem] tw-max-w-[26rem];
+  }
+  #tw-root .tw-drawer .MuiBackdrop-root {
+    @apply tw-bg-background/80 tw-backdrop-blur-[2px];
+  }
+}
