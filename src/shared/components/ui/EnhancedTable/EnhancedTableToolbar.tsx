@@ -56,7 +56,7 @@ const EnhancedTableToolbar = ({
   const toolbarClass = cx(
     'tw-flex tw-flex-row tw-items-center tw-justify-between tw-pl-4 tw-pr-2',
     numSelected > 0 && 'tw-bg-border/20',
-    className && className
+    className
   );
 
   return (
