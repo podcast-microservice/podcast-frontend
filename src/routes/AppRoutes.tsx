@@ -8,6 +8,7 @@ import { AdminRoutes } from './AdminRoutes';
 import { routes } from './routes';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import KidsplazaPage from '~/pages/Kidsplaza';
 
 const LoginPage = lazy(() => import('~/pages/LoginPage'));
 const RegisterPage = lazy(() => import('~/pages/RegisterPage'));
@@ -45,6 +46,7 @@ const AppRoutes = () => {
             <Route path={routes.podcastPath} element={<PodcastPage />} />
             <Route path={routes.componentPath} element={<BasicComponent />} />
             <Route path={routes.componentComplexPath} element={<ComplexComponent />} />
+            <Route path='/kids' element={<KidsplazaPage />} />
             <Route
               path={routes.loginPath}
               element={isUserAuthenticated ? <Navigate to={routes.homePath} /> : <LoginPage />}
