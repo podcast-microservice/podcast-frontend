@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import SwiperWithCustomArrow from '~/features/kidsplaza/components/slider-with-custom-arrow';
 import { SwiperSlide } from 'swiper/react';
+import CategoryProduct from '~/features/kidsplaza/components/category-products';
 
 
 
@@ -54,6 +55,8 @@ function KidsplazaPage() {
                 <SwiperSlide className='tw-bg-cyan-100'>Slide 8</SwiperSlide>
                 <SwiperSlide className='tw-bg-cyan-100'>Slide 9</SwiperSlide>
             </SwiperWithCustomArrow>
+            {/* Category products */}
+            <CategoryProduct />
         </main>
     );
 }
