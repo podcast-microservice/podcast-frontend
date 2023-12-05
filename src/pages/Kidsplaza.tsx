@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
-import SwiperWithCustomArrow from '~/features/kidsplaza/components/slider-with-custom-arrow';
 import { SwiperSlide } from 'swiper/react';
-import CategoryProduct from '~/features/kidsplaza/components/category-products';
+import SwiperWithCustomArrow from '~/features/kidsplaza/components/slider-with-custom-arrow';
+import FilterOption from '~/features/kidsplaza/select-styled-component/select-styled';
 
 
 
@@ -25,38 +25,15 @@ function KidsplazaPage() {
                 </div>
                 <div className="tw-bg-red-100">2</div>
             </div>
-            <SwiperWithCustomArrow className='tw-h-56 tw-mt-5 tw-w-[calc(100%+40px)] tw--ml-5 tw-px-5'
-                slidesPerView={3}
-                spaceBetween={20}
-                pagination={{ type: 'progressbar' }}
-                buttonPrevClassName='tw--left-0'
-                buttonNextClassName='tw--right-0'>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 1</SwiperSlide>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 2</SwiperSlide>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 3</SwiperSlide>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 4</SwiperSlide>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 5</SwiperSlide>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 6</SwiperSlide>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 7</SwiperSlide>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 8</SwiperSlide>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 9</SwiperSlide>
-            </SwiperWithCustomArrow>
-            <SwiperWithCustomArrow className='tw-h-56 tw-mt-5 tw-w-[calc(100%+40px)] tw--ml-5 tw-px-5'
-                spaceBetween={20}
-                buttonPrevClassName='tw--left-0'
-                buttonNextClassName='tw--right-0'>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 1</SwiperSlide>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 2</SwiperSlide>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 3</SwiperSlide>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 4</SwiperSlide>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 5</SwiperSlide>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 6</SwiperSlide>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 7</SwiperSlide>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 8</SwiperSlide>
-                <SwiperSlide className='tw-bg-cyan-100'>Slide 9</SwiperSlide>
-            </SwiperWithCustomArrow>
-            {/* Category products */}
-            <CategoryProduct />
+            <div className='tw-mt-5 tw-flex tw-flex-wrap tw-items-center tw-gap-3'>
+                <FilterOption />
+                <FilterOption />
+                <FilterOption />
+                <FilterOption />
+                <FilterOption />
+                <FilterOption />
+                <FilterOption />
+            </div>
         </main>
     );
 }
