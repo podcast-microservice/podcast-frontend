@@ -1,8 +1,8 @@
-import React from 'react';
-import Select, { MenuProps, ValueContainerProps, components } from 'react-select';
+import { useState } from 'react';
+import Select, { MenuListProps, OptionProps, ValueContainerProps, components } from 'react-select';
 import styled from 'styled-components';
 
-const { ValueContainer } = components;
+const { ValueContainer, MenuList, Option } = components;
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
@@ -40,6 +40,9 @@ const StyledSelect = styled(Select)`
     .filter__dropdown-indicator {
       color: ${colorVariables.KPZ_Blue_Dark};
     }
+    .filter__dropdown-indicator {
+      transform: rotate(-180deg);
+    }
   }
 
   .filter__value-container {
@@ -67,6 +70,7 @@ const StyledSelect = styled(Select)`
     margin-left: 0px;
   }
 
+  /* text color */
   .filter__custom-placeholder,
   .filter__placeholder,
   .filter__dropdown-indicator {
@@ -74,11 +78,25 @@ const StyledSelect = styled(Select)`
     font-weight: 500;
   }
 
+  .filter__dropdown-indicator {
+    transition: all 0.3s;
+  }
+
+  .filter__option,
+  .filter__option--is-focused,
+  .filter__option--is-selected {
+    background-color: white;
+    box-shadow: 0px 2px 6px #8f8f8f;
+    border-radius: 12px;
+    color: black;
+  }
+
   /* menu */
   .filter__menu {
     margin-top: 4px;
-    height: 200px;
     width: auto;
+    padding: 20px;
+    border-radius: 20px;
   }
 `;
 
@@ -91,31 +109,52 @@ const CustomValueContainer = ({ children, ...props }: ValueContainerProps) => {
   );
 };
 
-const CustomMenu = ({ children, ...props }: MenuProps) => {
+const CustomMenuList = ({ children, ...props }: MenuListProps) => {
   return (
-    <components.Menu {...props}>
-      {React.Children.map(children, (child) => (
-        <div className='tw-h-10 tw-w-96 tw-rounded-lg block'>{child}</div>
-      ))}
-    </components.Menu>
+    <MenuList {...props}>
+      <div className='tw-flex tw-flex-row tw-gap-4 tw-px-2'>{children}</div>
+      <div className='tw-flex tw-flex-row tw-gap-6 tw-items-center tw-justify-center tw-mt-5'>
+        <button className='tw-w-[180px] tw-h-[38px] tw-border tw-border-solid tw-border-black/20 tw-rounded-full'>
+          Bỏ chọn
+        </button>
+        <button className='tw-w-[180px] tw-h-[38px] tw-bg-orange-500 tw-rounded-full'>Xem (5) kết quả</button>
+      </div>
+    </MenuList>
+  );
+};
+
+const CustomOption = (props: OptionProps) => {
+  return (
+    <Option {...props}>
+      <div className='tw-flex tw-items-center tw-justify-center tw-gap-2'>
+        <input type='radio' checked={props.isSelected} className='tw-mt-[2px]' />
+        <span>{props.label}</span>
+      </div>
+    </Option>
   );
 };
 
 function FilterOption() {
+  const [selectedItems, setSelectedItems] = useState([]);
   const handleOnChange = (value: any) => {
-    console.log(value);
+    setSelectedItems(value);
   };
+  console.log(selectedItems);
   return (
     <StyledSelect
       components={{
         ValueContainer: CustomValueContainer,
-        Menu: CustomMenu
+        MenuList: CustomMenuList,
+        Option: CustomOption
       }}
+      value={selectedItems}
       classNamePrefix='filter'
       options={options}
       placeholder='Thương hiệu'
       onChange={handleOnChange}
       isSearchable={false}
+      hideSelectedOptions={false}
+      closeMenuOnSelect={false}
       isMulti
     />
   );

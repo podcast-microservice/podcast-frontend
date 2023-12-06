@@ -25,7 +25,7 @@ function KidsplazaPage() {
                 </div>
                 <div className="tw-bg-red-100">2</div>
             </div>
-            <div className='tw-mt-5 tw-flex tw-flex-wrap tw-items-center tw-gap-3'>
+            <div className='tw-mt-10 tw-flex tw-flex-wrap tw-items-center tw-gap-3 tw-mb-40'>
                 <FilterOption />
                 <FilterOption />
                 <FilterOption />
