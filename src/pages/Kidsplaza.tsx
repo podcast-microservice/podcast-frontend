@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 import { SwiperSlide } from 'swiper/react';
 import SwiperWithCustomArrow from '~/features/kidsplaza/components/slider-with-custom-arrow';
-import FilterOption from '~/features/kidsplaza/select-styled-component/select-styled';
-
-
+import FilterOption, { FilterRange } from '~/features/kidsplaza/select-styled-component/select-styled';
 
 function KidsplazaPage() {
     return (
@@ -25,14 +25,38 @@ function KidsplazaPage() {
                 </div>
                 <div className="tw-bg-red-100">2</div>
             </div>
+            <Slider
+                range
+                min={10000}
+                max={5000000}
+                step={10000}
+                defaultValue={[10000, 5000000]}
+                styles={{
+                    rail: {
+                        background: '#D9D9D9'
+                    },
+                    track: {
+                        background: '#21409A'
+                    },
+                    handle: {
+                        background: '#21409A',
+                        height: 20,
+                        width: 20,
+                        top: 2,
+                        border: 'none',
+                        opacity: 1,
+                        boxShadow: 'none'
+                    }
+                }}
+            />
             <div className='tw-mt-10 tw-flex tw-flex-wrap tw-items-center tw-gap-3 tw-mb-40'>
-                <FilterOption />
-                <FilterOption />
-                <FilterOption />
-                <FilterOption />
-                <FilterOption />
-                <FilterOption />
-                <FilterOption />
+                <FilterRange label='Khoảng giá' onSelect={(value: any) => console.log('range', value)} />
+                <FilterOption label='Thương hiệu' onSelect={(value: any) => console.log('kids', value)} />
+                <FilterOption label='Độ tuổi' />
+                <FilterOption label='Khối lượng' />
+                <FilterOption label='Dung tích' />
+                <FilterOption label='Xuất xứ' />
+                <FilterOption label='Hương vị' />
             </div>
         </main>
     );
