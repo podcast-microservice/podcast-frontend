@@ -1,5 +1,5 @@
 import Slider from 'rc-slider';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Select, { MenuListProps, OptionProps, ValueContainerProps, components } from 'react-select';
 import styled from 'styled-components';
 
@@ -114,6 +114,7 @@ const StyledSelect = styled(Select)`
     padding: 20px;
     border-radius: 20px;
     min-width: 40vw;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 `;
 
@@ -203,62 +204,84 @@ interface RangeMenuListProps extends MenuListProps {
 }
 
 const RangeMenuList = ({ values, onChange, onReset, ...props }: RangeMenuListProps) => {
-  console.log('range rerender');
+  useEffect(() => {
+    console.log('range rerender');
+    return () => {
+      // Cleanup code (optional)
+      console.log('clean range');
+    };
+  }, []);
   const handleOnChange = (values: number[] | number) => {
     onChange(values as number[]);
   };
   return (
-    <MenuList {...props}>
-      <div className='tw-px-3 tw-py-2'>
-        <Slider
-          range
-          min={10000}
-          max={5000000}
-          step={10000}
-          value={values}
-          onChange={handleOnChange}
-          styles={{
-            rail: {
-              background: '#D9D9D9'
-            },
-            track: {
-              background: '#21409A'
-            },
-            handle: {
-              background: '#21409A',
-              height: 20,
-              width: 20,
-              top: 2,
-              border: 'none',
-              opacity: 1,
-              boxShadow: 'none'
-            }
+    <div>
+      <MenuList {...props}>
+        <div
+          className='tw-px-3 tw-py-2'
+          onMouseDown={(e) => {
+            e.stopPropagation();
           }}
-        />
-        <div className='tw-flex tw-items-center tw-justify-between tw-mt-4'>
-          <p>Từ {values[0].toLocaleString('vi-VN')}đ</p>
-          <p>Đến {values[1].toLocaleString('vi-VN')}đ</p>
-        </div>
-      </div>
-
-      <div className='tw-flex tw-flex-row tw-gap-6 tw-items-center tw-justify-center tw-mt-3'>
-        <button
-          className='tw-w-[180px] tw-h-[38px] tw-border tw-border-solid tw-border-black/20 tw-rounded-full'
-          onClick={onReset}
+          onTouchEnd={(e) => {
+            e.stopPropagation();
+          }}
         >
-          Bỏ chọn
-        </button>
-        <button className='tw-w-[180px] tw-h-[38px] tw-bg-orange-500 tw-rounded-full'>Xem (5) kết quả</button>
-      </div>
-    </MenuList>
+          <Slider
+            range
+            onFocus={(e) => {
+              e.stopPropagation();
+            }}
+            onBlur={(e) => {
+              e.stopPropagation();
+            }}
+            min={10000}
+            max={5000000}
+            step={10000}
+            value={values}
+            onChange={handleOnChange}
+            styles={{
+              rail: {
+                background: '#D9D9D9'
+              },
+              track: {
+                background: '#21409A'
+              },
+              handle: {
+                background: '#21409A',
+                height: 20,
+                width: 20,
+                top: 2,
+                border: 'none',
+                opacity: 1,
+                boxShadow: 'none'
+              }
+            }}
+          />
+          <div className='tw-flex tw-items-center tw-justify-between tw-mt-4'>
+            <p>Từ {values[0].toLocaleString('vi-VN')}đ</p>
+            <p>Đến {values[1].toLocaleString('vi-VN')}đ</p>
+          </div>
+        </div>
+        <div className='tw-flex tw-flex-row tw-gap-6 tw-items-center tw-justify-center tw-mt-3'>
+          <button
+            className='tw-w-[180px] tw-h-[38px] tw-border tw-border-solid tw-border-black/20 tw-rounded-full'
+            onClick={onReset}
+          >
+            Bỏ chọn
+          </button>
+          <button className='tw-w-[180px] tw-h-[38px] tw-bg-orange-500 tw-rounded-full'>Xem (5) kết quả</button>
+        </div>
+      </MenuList>
+    </div>
   );
 };
 
 export function FilterRange({ label, onSelect }: IProps) {
+  const selectRef = useRef(null);
   const defaultValue = [10000, 5000000];
   const [values, setValues] = useState<number[]>(defaultValue);
-  const handleChangeSlider = (values: number[] | number) => {
-    setValues(values as number[]);
+  const handleChangeSlider = (values: number[]) => {
+    setValues(values);
     if (onSelect) {
       onSelect(values);
     }
@@ -271,6 +294,7 @@ export function FilterRange({ label, onSelect }: IProps) {
   }, []);
   return (
     <StyledSelect
+      ref={selectRef}
       components={{
         ValueContainer: CustomValueContainer,
         MenuList: (props) => (
@@ -283,7 +307,6 @@ export function FilterRange({ label, onSelect }: IProps) {
       hideSelectedOptions={false}
       closeMenuOnSelect={false}
       isMulti
-      menuIsOpen
     />
   );
 }

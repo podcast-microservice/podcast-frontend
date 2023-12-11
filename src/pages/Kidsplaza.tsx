@@ -1,11 +1,18 @@
 /* eslint-disable prettier/prettier */
-import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import { useState } from 'react';
 import { SwiperSlide } from 'swiper/react';
 import SwiperWithCustomArrow from '~/features/kidsplaza/components/slider-with-custom-arrow';
+import FilterRangeProduct from '~/features/kidsplaza/select-styled-component/filter-range';
 import FilterOption, { FilterRange } from '~/features/kidsplaza/select-styled-component/select-styled';
+import TestSlider from '~/features/kidsplaza/select-styled-component/test-slider';
 
 function KidsplazaPage() {
+    console.log('range kids rerender');
+    const [values, setValues] = useState([10000, 5000000]);
+    const handleChangeSlider = (values: number[]) => {
+        setValues(values);
+    };
     return (
         <main className='tw-px-[10%] tw-py-[5%] tw-bg-blue-100'>
             <div className='tw-grid tw-grid-cols-6 tw-gap-4'>
@@ -25,32 +32,14 @@ function KidsplazaPage() {
                 </div>
                 <div className="tw-bg-red-100">2</div>
             </div>
-            <Slider
-                range
-                min={10000}
-                max={5000000}
-                step={10000}
-                defaultValue={[10000, 5000000]}
-                styles={{
-                    rail: {
-                        background: '#D9D9D9'
-                    },
-                    track: {
-                        background: '#21409A'
-                    },
-                    handle: {
-                        background: '#21409A',
-                        height: 20,
-                        width: 20,
-                        top: 2,
-                        border: 'none',
-                        opacity: 1,
-                        boxShadow: 'none'
-                    }
-                }}
-            />
+            <TestSlider values={values} onChangeSlider={handleChangeSlider} />
             <div className='tw-mt-10 tw-flex tw-flex-wrap tw-items-center tw-gap-3 tw-mb-40'>
-                <FilterRange label='Khoảng giá' onSelect={(value: any) => console.log('range', value)} />
+                <FilterRangeProduct
+                    defaultValue={[10000, 5000000]}
+                    label='Khoảng giá'
+                    onSelect={(values: number[]) => console.log('filter range', values)}
+                    onSave={(values: number[]) => console.log('Xem ket qua', values)}
+                />
                 <FilterOption label='Thương hiệu' onSelect={(value: any) => console.log('kids', value)} />
                 <FilterOption label='Độ tuổi' />
                 <FilterOption label='Khối lượng' />
